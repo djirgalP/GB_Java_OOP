@@ -1,14 +1,72 @@
 package Homework1;
 
-public class Person {
-    public String fullName;
+import java.util.ArrayList;
 
-    public Person(String fullName) {
-        this.fullName = fullName;
+public class Person {
+
+    private String name;
+    private String lastName;
+    private Sexes sex;
+    ArrayList<Person> family = new ArrayList<>();
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public Person(String name, String lastName) {
+        this.name = name;
+        this.lastName = lastName;
+    }
+
+    public Person(String name, Sexes sex) {
+        this.name = name;
+        this.sex = sex;
+    }
+
+    public Person(String name, String lastName, Sexes sex) {
+        this.name = name;
+        this.lastName = lastName;
+        this.sex = sex;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public String getFullName() {
-        return fullName;
+        return name + ' ' + lastName;
     }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Sexes getSex() {
+        return sex;
+    }
+
+    public void setSex(Sexes sex) {
+        this.sex = sex;
+    }
+
+
+    public ArrayList<Person> getFamily() {
+        return family;
+    }
+
+    public void setFamily(ArrayList<Person> family) {
+        this.family = family;
+    }
+
+    public void appendToFamily(Person person) {
+        if (person != this && person != null) {
+            family.add(person);
+        }
+    }
+
 
 }
