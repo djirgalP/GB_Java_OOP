@@ -1,6 +1,7 @@
 package Homework1.Task2;
 
 import Homework1.Task1.Sexes;
+import Homework1.Task3.Cat;
 
 public class Chelovek {
 
@@ -8,6 +9,7 @@ public class Chelovek {
     private String lastName;
     private Sexes sex;
     Shkaf myShkaf;
+    Cat myCat;
 
     public Chelovek(String firstName, String lastName) {
         this.firstName = firstName;
@@ -26,7 +28,6 @@ public class Chelovek {
 
     public void buyShkaf(int width, int height, int depth, String color, int number) {
         this.myShkaf = new Shkaf(width, height, depth, color, number);
-        //интересно, можно ли отсюда установить хозяина шкафа ? this.myShkaf.setOwner(chelovek);
     }
 
     public Shkaf getShkaf(){
@@ -36,5 +37,39 @@ public class Chelovek {
     @Override
     public String toString() {
         return getName();
+    }
+
+    public void getCat(String name, Sexes sex, int age) {
+        this.myCat = new Cat(name, sex, age);
+    }
+
+    public void feedCat(Integer meal){
+        myCat.eat(meal);
+        System.out.println(myCat.getName() + " поел");
+    }
+
+    public void feedCat(Cat cat, Integer meal){
+        cat.eat(meal);
+        System.out.println(cat.getName() + " поел");
+    }
+
+    public void playWithCat(){
+        System.out.println("Человек играет с " + myCat.getName());
+        myCat.play();
+    }
+
+    public void playWithCat(Cat cat){
+        System.out.println("Человек играет с " + cat.getName());
+        cat.play();
+    }
+
+    public void callCat(){
+        System.out.println("Человек позвал кота " + myCat.getName());
+        myCat.answer();
+    }
+
+    public void callCat(Cat cat){
+        System.out.println("Человек позвал кота " + cat.getName());
+        cat.answer();
     }
 }
