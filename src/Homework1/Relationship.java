@@ -2,5 +2,8 @@ package Homework1;
 
 public enum Relationship {
     parent,
-    children
+    children,
+    granny,
+    partner,
+    siblings
 }
