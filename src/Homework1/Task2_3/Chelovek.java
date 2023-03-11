@@ -2,7 +2,9 @@ package Homework1.Task2_3;
 
 import Homework1.Task1.Sexes;
 
-public class Chelovek {
+import java.util.HashMap;
+
+public class Chelovek implements ShkafImpl{
 
     private String firstName;
     private String lastName;
@@ -31,6 +33,20 @@ public class Chelovek {
 
     public Shkaf getShkaf(){
         return myShkaf;
+    }
+
+    public void toOpen(Shkaf shkaf) {
+        if (shkaf.isOpen() == false)
+            shkaf.setIsOpen(true);
+    }
+
+    public void toClose(Shkaf shkaf) {
+        if (shkaf.isOpen() == true)
+            shkaf.setIsOpen(false);
+    }
+
+    public void fillShelter(Shkaf shkaf, int number, int percentage){
+        shkaf.setFilling(number, percentage);
     }
 
     @Override
