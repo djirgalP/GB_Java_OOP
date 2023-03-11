@@ -1,4 +1,4 @@
-package Homework1.Task3;
+package Homework1.Task2;
 
 public class Animal {
     private String model;

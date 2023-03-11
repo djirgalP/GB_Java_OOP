@@ -1,7 +1,6 @@
 package Homework1.Task2;
 
 import Homework1.Task1.Sexes;
-import Homework1.Task3.Cat;
 
 public class Chelovek {
 
