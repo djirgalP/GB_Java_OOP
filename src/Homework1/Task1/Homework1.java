@@ -9,14 +9,6 @@ public class Homework1 {
         Person masha = new Person("Маша","Пупкина", Sexes.F);
         Person jane = new Person("Женя", "Пупкина",Sexes.F);
 
-
-/*        irina.appendToFamily(vasya);
-        irina.appendToFamily(masha);
-        vasya.appendToFamily(jane);
-        vasya.appendToFamily(ivan);
-
-        view(irina);*/
-
         GeoTree gt = new GeoTree();
         gt.appendChild(vasya, ivan);
         gt.appendChild(irina, masha);
@@ -25,17 +17,12 @@ public class Homework1 {
         gt.appendChild(ivan, jane);
         gt.appendPartner(ivan, irina);
 
-        System.out.println(new Research(gt).spend(vasya, Relationship.parent));//для кого Василий - родитель
-        System.out.println(new Research(gt).spend(vasya, Relationship.children));//для кого Василий - ребенок
-        System.out.println(new Research(gt).spend(vasya, Relationship.partner));//для кого Василий - супруг
-        System.out.println(new Research(gt).spend(ivan, Relationship.partner));//для кого Ваня - супруг
-        System.out.println(new Research(gt).spend(jane, Relationship.children));//для кого Женя - ребенок
+        //GeoTree gtForVanya = new Research(gt).getAllRealations();
+        gt.getChildren(vasya);//для кого Василий - родитель
+        gt.getParents(vasya);//для кого Василий - ребенок
+        gt.getPartners(vasya);//для кого Василий - супруг
+        gt.getPartners(ivan);//для кого Ваня - супруг
+        gt.getParents(jane);//для кого Женя - ребенок
     }
 
-    public static void view(Person rootPerson) {
-        System.out.println(rootPerson);
-        for (Person person : rootPerson.getFamily()) {
-            view(person);
-        }
-    }
 }

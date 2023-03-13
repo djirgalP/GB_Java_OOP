@@ -1,6 +1,6 @@
 package Homework1.Task2_3;
 
-public class Animal {
+public  abstract class Animal {
     private String model;
 
     public Animal(String model) {
@@ -21,7 +21,4 @@ public class Animal {
         return this.model;
     }
 
-    public String voice() {
-        return "Животное говорит";
-    }
 }

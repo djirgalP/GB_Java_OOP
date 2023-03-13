@@ -5,10 +5,11 @@ import java.util.HashMap;
 public class Shkaf {
     private Chelovek myOwner;
 
-    int width;
-    int height;
-    int depth;
+    private int width;
+    private int height;
+    private int depth;
     private String color;
+    private int numberOfPolok;
     private boolean isOpen;
     private HashMap<Integer, Integer> polki = new HashMap<>(); //ключ - номер полки, значение - заполненность полки
 
@@ -33,29 +34,35 @@ public class Shkaf {
         return myOwner;
     }
 
-    public void toOpen() {
-        if (isOpen() == false)
-            this.isOpen = true;
-    }
-
-    public void toClose() {
-        if (isOpen() == true)
-            this.isOpen = false;
-    }
-
     public boolean isOpen() {
         return isOpen;
     }
 
-    public void fillShelter(int number, int percentage){
-        if (polki.get(number) != null) {
-            int newVolume = polki.get(number);
-            polki.put(number, newVolume + percentage);
-        }
+    public void setIsOpen(boolean value) {
+        if (isOpen == false)
+            this.isOpen = true;
     }
+
+    public int getNumberOfPolok() {
+        return numberOfPolok;
+    }
+
+    public void setNumberOfPolok(int numberOfPolok) {
+        this.numberOfPolok = numberOfPolok;
+    }
+
     public void getFilling(){
         for (int shelter: polki.keySet()) {
             System.out.printf("Полка номер %d заполнена на %d процентов%n", shelter+1, polki.get(shelter));
+        }
+    }
+
+    public void setFilling(int number, int percentage){
+        if (number >= 1){
+            if (polki.get(number-1) != null) {
+                int newVolume = polki.get(number-1);
+                polki.put(number-1, newVolume + percentage);
+            }
         }
     }
 
