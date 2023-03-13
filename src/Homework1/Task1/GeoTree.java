@@ -2,7 +2,7 @@ package Homework1.Task1;
 
 import java.util.ArrayList;
 
-public class GeoTree implements Research{
+public class GeoTree implements GeoTreeImpl, Research{
 
     private ArrayList<Node> tree = new ArrayList<>();
 
@@ -11,7 +11,7 @@ public class GeoTree implements Research{
         return tree;
     }
 
-    //@Override
+    @Override
     public void appendChild(Person parent, Person child) {
         if (parent == null || child == null) {
             return;
@@ -21,7 +21,7 @@ public class GeoTree implements Research{
 
     }
 
-    //@Override
+    @Override
     public void appendPartner(Person partner1, Person partner2){
         if (partner1 == null || partner2 == null) {
             return;
