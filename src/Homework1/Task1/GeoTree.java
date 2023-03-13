@@ -1,6 +1,7 @@
 package Homework1.Task1;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class GeoTree implements GeoTreeImpl, Research{
 

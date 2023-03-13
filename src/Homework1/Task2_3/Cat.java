@@ -1,7 +1,7 @@
 package Homework1.Task2_3;
 import Homework1.Task1.Sexes;
 
-public class Cat extends Animal{
+public class Cat extends Animal implements CatsImpl{
     private String name;
     private Sexes sex;
     private int age;
@@ -17,7 +17,7 @@ public class Cat extends Animal{
         this.name = name;
         this.sex = sex;
         this.age = age;
-        this.hungriness = 15;
+        this.hungriness = 10;
     }
 
     public String getName() {
@@ -39,14 +39,17 @@ public class Cat extends Animal{
         return super.hashCode();
     }
 
+    @Override
     public String voice() {
         return this.name + " говорит:\"Мяяяяу!!!\"";
     }
 
+    @Override
     public void eat(Integer food) {
         this.hungriness += food;
     }
 
+    @Override
     public void play() {
         if (this.hungriness <= 10) {
             this.hungriness = 0;
@@ -57,6 +60,7 @@ public class Cat extends Animal{
         }
     }
 
+    @Override
     public void answer(){
         if (this.hungriness <= 10) {
             this.hungriness = 0;
@@ -67,6 +71,7 @@ public class Cat extends Animal{
         }
     }
 
+    @Override
     public int getHungriness() {
         return this.hungriness;
     }

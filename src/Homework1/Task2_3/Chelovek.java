@@ -54,9 +54,11 @@ public class Chelovek implements ShkafImpl{
         return getName();
     }
 
-    public void getCat(String name, Sexes sex, int age) {
+    public void setCat(String name, Sexes sex, int age) {
         this.myCat = new Cat(name, sex, age);
     }
+
+    public Cat getCat(){return myCat; }
 
     public void feedCat(Integer meal){
         myCat.eat(meal);

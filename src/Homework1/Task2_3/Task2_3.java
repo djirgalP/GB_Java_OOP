@@ -21,7 +21,7 @@ public class Task2_3 {
         System.out.println(chelovek + " закрыл шкаф ");
 
     //Задание 3 про Человека и Кошку
-/*        chelovek.getCat("Мирошка", Sexes.M, 1);
+        chelovek.setCat("Мирошка", Sexes.M, 1);
         Cat cat2 = new Cat("Чужой", Sexes.F, 5);
         chelovek.callCat();
         chelovek.callCat(cat2);
@@ -30,6 +30,9 @@ public class Task2_3 {
         chelovek.playWithCat();
         chelovek.playWithCat(cat2);
         chelovek.feedCat(5);
-        chelovek.feedCat(cat2, 7);*/
+        chelovek.feedCat(cat2, 7);
+        chelovek.callCat(cat2);
+        System.out.printf("Уровень голода кота по имени %s = %d \n", cat2.getName(), cat2.getHungriness());
+        System.out.printf("Уровень голода кота по имени %s = %d \n",  chelovek.getCat().getName(), chelovek.getCat().getHungriness());
     }
 }
