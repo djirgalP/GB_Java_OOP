@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public interface Research {
 
-    ArrayList<String> getParents(Person person);
+    void getParents(Person person);
 
-    ArrayList<String> getChildren(Person person);
+    void getChildren(Person person);
 
     void getPartners(Person person);
 

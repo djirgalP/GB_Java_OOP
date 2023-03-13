@@ -11,15 +11,17 @@ public class GeoTree implements Research{
         return tree;
     }
 
-    public void appendChild(Person parent, Person children) {
-        if (parent == null || children == null) {
+    //@Override
+    public void appendChild(Person parent, Person child) {
+        if (parent == null || child == null) {
             return;
         }
-        tree.add(new Node(parent, Relationship.parent, children));
-        tree.add(new Node(children, Relationship.children, parent));
+        tree.add(new Node(parent, Relationship.parent, child));
+        tree.add(new Node(child, Relationship.children, parent));
 
     }
 
+    //@Override
     public void appendPartner(Person partner1, Person partner2){
         if (partner1 == null || partner2 == null) {
             return;
@@ -30,27 +32,39 @@ public class GeoTree implements Research{
     }
 
     @Override
-    public ArrayList<String> getParents(Person person) {
+    public void getParents(Person person) {
         System.out.printf("Родители человека по имени %s : ", person.getFullName());
-        return spend(person, Relationship.children);
+        ArrayList<String> result = spend(person, Relationship.children);
+        if (result.isEmpty()) {
+            System.out.println("Данных нет...");
+        }
+        else {
+            System.out.println(result);
+        }
     }
 
     @Override
-    public ArrayList<String> getChildren(Person person) {
+    public void getChildren(Person person) {
         System.out.printf("Дети человека по имени %s : ", person.getFullName());
-        return spend(person, Relationship.parent);
+        ArrayList<String> result = spend(person, Relationship.parent);
+        if (result.isEmpty()) {
+            System.out.println("Данных нет...");
+        }
+        else {
+            System.out.println(result);
+        }
+
     }
 
     @Override
     public void getPartners(Person person) {
         ArrayList<String> result = spend(person, Relationship.partner);
+        System.out.printf("Супруг/супруга человека по имени %s : ", person.getFullName());
         if (result.isEmpty()) {
-            System.out.printf("Данных о супруге человека по имени %s нет.", person.getFullName());
+            System.out.println("Данных нет...");
         }
         else {
-            System.out.printf("Супруг/супруга человека по имени %s : ", person.getFullName());
             System.out.println(result);
-
         }
     }
 
