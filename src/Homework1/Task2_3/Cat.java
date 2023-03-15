@@ -84,4 +84,9 @@ public class Cat extends Animal implements MammalsImpl{
     public int getHungriness() {
         return this.hungriness;
     }
+
+    @Override
+    public void toilet() {
+        System.out.println(this.name + " гадит в тапки (_._)");
+    }
 }

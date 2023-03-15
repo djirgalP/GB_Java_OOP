@@ -23,15 +23,15 @@ public class Task2_3 {
     //Задание 3 про Человека и Кошку
         chelovek.setCat("Мирошка", Sexes.M, 1);
         Cat cat2 = new Cat("Чужой", Sexes.F, 5);
-        chelovek.callCat();
-        chelovek.callCat(cat2);
+        chelovek.callAnimal();
+        chelovek.callAnimal(cat2);
         while (cat2.getHungriness() > 10)
-            chelovek.playWithCat(cat2);
-        chelovek.playWithCat();
-        chelovek.playWithCat(cat2);
-        chelovek.feedCat(5);
-        chelovek.feedCat(cat2, 7);
-        chelovek.callCat(cat2);
+            chelovek.playWithAnimal(cat2);
+        chelovek.playWithAnimal();
+        chelovek.playWithAnimal(cat2);
+        chelovek.feedAnimal(5);
+        chelovek.feedAnimal(cat2, 7);
+        chelovek.callAnimal(cat2);
         System.out.printf("Уровень голода кота по имени %s = %d \n", cat2.getName(), cat2.getHungriness());
         System.out.printf("Уровень голода кота по имени %s = %d \n",  chelovek.getCat().getName(), chelovek.getCat().getHungriness());
     }

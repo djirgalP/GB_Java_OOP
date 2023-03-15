@@ -2,9 +2,7 @@ package Homework1.Task2_3;
 
 import Homework1.Task1.Sexes;
 
-import java.util.HashMap;
-
-public class Chelovek implements ShkafImpl{
+public class Chelovek implements ShkafImpl, Interaction{
 
     private String firstName;
     private String lastName;
@@ -60,32 +58,44 @@ public class Chelovek implements ShkafImpl{
 
     public Cat getCat(){return myCat; }
 
-    public void feedCat(Integer meal){
+    @Override
+    public void feedAnimal(Integer meal){
         myCat.eat(meal);
         System.out.println(myCat.getName() + " поел");
     }
 
-    public void feedCat(Cat cat, Integer meal){
+    @Override
+    public void feedAnimal(Animal animal, Integer meal) {
+        Cat cat = (Cat)animal;
         cat.eat(meal);
         System.out.println(cat.getName() + " поел");
     }
 
-    public void playWithCat(){
-        System.out.println("Человек играет с " + myCat.getName());
-        myCat.play();
-    }
-
-    public void playWithCat(Cat cat){
+    @Override
+    public void playWithAnimal(Animal animal) {
         System.out.println("Человек играет с " + cat.getName());
         cat.play();
     }
 
-    public void callCat(){
+    @Override
+    public void playWithAnimal(Cat cat){
+        System.out.println("Человек играет с " + cat.getName());
+        cat.play();
+    }
+
+    @Override
+    public void callAnimal(){
         System.out.println("Человек позвал кота " + myCat.getName());
         myCat.answer();
     }
 
-    public void callCat(Cat cat){
+    @Override
+    public void callAnimal(Animal animal) {
+
+    }
+
+    @Override
+    public void callAnimal(Cat cat){
         System.out.println("Человек позвал кота " + cat.getName());
         cat.answer();
     }

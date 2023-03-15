@@ -13,4 +13,6 @@ public interface MammalsImpl {
 
     public void answer();
 
+    public void toilet();
+
 }
