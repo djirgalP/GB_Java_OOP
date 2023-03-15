@@ -1,9 +1,18 @@
 package Homework1.Task2_3;
 import Homework1.Task1.Sexes;
 
-public class Cat extends Animal implements CatsImpl{
+public class Cat extends Animal implements MammalsImpl{
     private String name;
     private Sexes sex;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     private int age;
     private int hungriness;
 

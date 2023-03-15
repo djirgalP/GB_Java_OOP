@@ -1,6 +1,7 @@
 package Homework1.Task2_3;
+/* Интерфейс для описания действий млекопитацющих */
 
-public interface CatsImpl {
+public interface MammalsImpl {
 
     public String voice();
 
@@ -11,4 +12,5 @@ public interface CatsImpl {
     public void play();
 
     public void answer();
+
 }
