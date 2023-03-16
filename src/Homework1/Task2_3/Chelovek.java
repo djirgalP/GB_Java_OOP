@@ -63,21 +63,18 @@ public class Chelovek implements ShkafImpl, Interaction{
         myCat.eat(meal);
         System.out.println(myCat.getName() + " поел");
     }
-
-    @Override
-    public void feedAnimal(Animal animal, Integer meal) {
-        Cat cat = (Cat)animal;
+    /*А если нужно уметь кормить любое животное, не только кошек?*/
+    public void feedAnimal(Cat cat, Integer meal) {
         cat.eat(meal);
         System.out.println(cat.getName() + " поел");
     }
 
     @Override
-    public void playWithAnimal(Animal animal) {
-        System.out.println("Человек играет с " + cat.getName());
-        cat.play();
+    public void playWithAnimal() {
+        System.out.println("Человек играет с " + myCat.getName());
+        myCat.play();
     }
 
-    @Override
     public void playWithAnimal(Cat cat){
         System.out.println("Человек играет с " + cat.getName());
         cat.play();
@@ -85,16 +82,11 @@ public class Chelovek implements ShkafImpl, Interaction{
 
     @Override
     public void callAnimal(){
-        System.out.println("Человек позвал кота " + myCat.getName());
+        System.out.println("Человек позвал своего кота " + myCat.getName());
         myCat.answer();
     }
 
-    @Override
-    public void callAnimal(Animal animal) {
 
-    }
-
-    @Override
     public void callAnimal(Cat cat){
         System.out.println("Человек позвал кота " + cat.getName());
         cat.answer();

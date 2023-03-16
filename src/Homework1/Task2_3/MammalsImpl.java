@@ -3,16 +3,20 @@ package Homework1.Task2_3;
 
 public interface MammalsImpl {
 
-    public String voice();
+    void suckMilk();
 
-    public int getHungriness();
+    String voice();
 
-    public void eat(Integer food);
+    int getHungriness();
 
-    public void play();
+    void eat(Integer food);
 
-    public void answer();
+    void play();
 
-    public void toilet();
+    void answer();
+
+    void toilet();
+
+
 
 }
