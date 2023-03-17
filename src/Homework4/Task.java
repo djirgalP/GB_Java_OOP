@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-public class Task {
+public class Task implements Comparable<Task>{
     private final int id;
     private Priority priority;
     private String description;
@@ -17,6 +17,7 @@ public class Task {
     static {
         counter = 1;
     }
+    
     public Task() {
         this.description = "N/D";
         this.priority = Priority.LOW;
@@ -52,8 +53,24 @@ public class Task {
         this.id = counter++;
     }
 
-    public Priority getPriority() {
-        return priority;
+    public int getId() {
+        return id;
+    }
+
+    public String getPriority() {
+        return switch (priority) {
+            case LOW -> "Low priority";
+            case MEDIUM -> "Medium priority";
+            case HIGH -> "Immediate execution";
+            default -> "Not Defined";
+        };
+    }
+    public int getPriorityCode(){
+        return switch (priority) {
+            case MEDIUM -> 2;
+            case HIGH -> 3;
+            default -> 1;
+        };
     }
 
     public void setPriority(Priority priority) {
@@ -66,6 +83,23 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Task #" + getId() +
+                " : " + getDescription() +
+                ", priority: " + getPriority() +
+                ", time created: " + created +
+                ", deadline time: " + deadlineTime +
+                ", deadline date: " + deadlineDate;
+    }
+
+    @Override
+    public int compareTo(Task o) {
+        int compareId
+                = o.getId();
+        return this.id - compareId;
     }
 
 }
