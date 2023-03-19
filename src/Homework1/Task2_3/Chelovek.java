@@ -2,9 +2,7 @@ package Homework1.Task2_3;
 
 import Homework1.Task1.Sexes;
 
-import java.util.HashMap;
-
-public class Chelovek implements ShkafImpl{
+public class Chelovek implements ShkafImpl, Interaction{
 
     private String firstName;
     private String lastName;
@@ -60,32 +58,36 @@ public class Chelovek implements ShkafImpl{
 
     public Cat getCat(){return myCat; }
 
-    public void feedCat(Integer meal){
+    @Override
+    public void feedAnimal(Integer meal){
         myCat.eat(meal);
         System.out.println(myCat.getName() + " поел");
     }
-
-    public void feedCat(Cat cat, Integer meal){
+    /*А если нужно уметь кормить любое животное, не только кошек?*/
+    public void feedAnimal(Cat cat, Integer meal) {
         cat.eat(meal);
         System.out.println(cat.getName() + " поел");
     }
 
-    public void playWithCat(){
+    @Override
+    public void playWithAnimal() {
         System.out.println("Человек играет с " + myCat.getName());
         myCat.play();
     }
 
-    public void playWithCat(Cat cat){
+    public void playWithAnimal(Cat cat){
         System.out.println("Человек играет с " + cat.getName());
         cat.play();
     }
 
-    public void callCat(){
-        System.out.println("Человек позвал кота " + myCat.getName());
+    @Override
+    public void callAnimal(){
+        System.out.println("Человек позвал своего кота " + myCat.getName());
         myCat.answer();
     }
 
-    public void callCat(Cat cat){
+
+    public void callAnimal(Cat cat){
         System.out.println("Человек позвал кота " + cat.getName());
         cat.answer();
     }

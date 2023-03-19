@@ -1,10 +1,11 @@
 package Homework1.Task2_3;
 import Homework1.Task1.Sexes;
 
-public class Cat extends Animal implements CatsImpl{
+import java.util.Objects;
+
+public class Cat extends Animal implements MammalsImpl{
     private String name;
     private Sexes sex;
-    private int age;
     private int hungriness;
 
 
@@ -13,10 +14,9 @@ public class Cat extends Animal implements CatsImpl{
         this.name = name;
     }
     public Cat(String name, Sexes sex, int age) {
-        super("Кошачье");
+        super("Кошачье", age);
         this.name = name;
         this.sex = sex;
-        this.age = age;
         this.hungriness = 10;
     }
 
@@ -35,8 +35,19 @@ public class Cat extends Animal implements CatsImpl{
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cat cat = (Cat) o;
+        return super.getAge() == cat.getAge() && hungriness == cat.hungriness && Objects.equals(name, cat.name) && sex == cat.sex;
+    }
+
+    @Override
     public int hashCode() {
-        return super.hashCode();
+        int result = name == null ? 0 : name.hashCode();
+        result = 31 * result + hungriness;
+        result = 31 * result + super.getAge();
+        return result;
     }
 
     @Override
@@ -62,17 +73,39 @@ public class Cat extends Animal implements CatsImpl{
 
     @Override
     public void answer(){
-        if (this.hungriness <= 10) {
+        if (this.hungriness <= 5) {
             this.hungriness = 0;
             System.out.println(this.name + " молчит т.к. нет сил, надо бы покормить...");
         } else {
             System.out.println(voice());
-            this.hungriness -= 5;
+            hungriness -= 5;
         }
     }
 
     @Override
     public int getHungriness() {
         return this.hungriness;
+    }
+
+    @Override
+    public void toilet() {
+        System.out.println(this.name + " гадит (_._)");
+        this.hungriness = hungriness <= 10 ? 0 : hungriness - 10;
+    }
+
+    public void toilet(Chelovek chelovek) {
+        System.out.println(this.name + " гадит в тапки U U человека по имени " + chelovek.getName());
+        this.hungriness = hungriness <= 10 ? 0 : hungriness - 10;
+    }
+
+    @Override
+    public void suckMilk() {
+        if (super.getAge() <= 1) {
+            System.out.println(this.name + " сосет молоко");
+            this.hungriness += 25;
+        } else {
+            System.out.println(this.name + " лакает молоко");
+            this.hungriness += 5;
+        }
     }
 }
