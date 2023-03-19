@@ -9,7 +9,7 @@ public class Task implements Comparable<Task>{
     private final int id;
     private Priority priority;
     private String description;
-    private LocalTime created;
+    private String created;
     private String deadlineTime;
     private String deadlineDate;
     private static int counter;
@@ -17,11 +17,11 @@ public class Task implements Comparable<Task>{
     static {
         counter = 1;
     }
-    
+
     public Task() {
         this.description = "N/D";
         this.priority = Priority.LOW;
-        this.created = LocalTime.now();
+        this.created = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         this.deadlineTime = "N/D";
         this.deadlineDate = "N/D";
         this.id = counter++;
@@ -30,24 +30,25 @@ public class Task implements Comparable<Task>{
     public Task(String description) {
         this.description = description;
         this.priority = Priority.LOW;
-        this.created = LocalTime.now();
+        this.created = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         this.deadlineTime = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm"));
-        this.deadlineDate = LocalDate.now().format(DateTimeFormatter.ofPattern("dd:MM:yyyy"));
+        this.deadlineDate = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         this.id = counter++;
     }
 
     public Task(String description, Priority priority) {
         this.description = description;
         this.priority = Priority.LOW;
-        this.created = LocalTime.now();
+        this.created = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         this.deadlineTime = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm"));
-        this.deadlineDate = LocalDate.now().format(DateTimeFormatter.ofPattern("dd:MM:yyyy"));
+        this.deadlineDate = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         this.id = counter++;
     }
 
-    public Task(Priority priority, String description, String deadlineTime, String deadlineDate) {
+    public Task(String description, Priority priority, String deadlineTime, String deadlineDate) {
         this.description = description;
         this.priority = priority;
+        this.created = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         this.deadlineTime = deadlineTime;
         this.deadlineDate = deadlineDate;
         this.id = counter++;
