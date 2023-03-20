@@ -23,6 +23,13 @@ public class Planner implements Iterable<Task>{
         }
     }
 
+    public void showSortedByPriority(){
+        tasks.sort(new TaskComparator());
+        for (Task task : tasks) {
+            System.out.println(task);
+        }
+    };
+
     public Task getById(int id) {
         return tasks.stream()
                 .filter(task -> task.getId() == (id))
@@ -46,10 +53,6 @@ public class Planner implements Iterable<Task>{
 
     public void sort() {
         Collections.sort(tasks);
-    }
-
-    public void sortByPriority() {
-        tasks.sort(new TaskComparator());
     }
 
     @Override

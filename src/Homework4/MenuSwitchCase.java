@@ -21,26 +21,28 @@ public class MenuSwitchCase {
     public void startMenu(Planner planner) {
         if (this.scanner != null) {
             String option;
+            UserActions actions = new UserActions(scanner, planner);
             do {
                 printMenu();
-                System.out.print("Please, choose one of the operations:\n");
+                System.out.print("Please, enter a number of the operation:\n");
                 option = this.scanner.nextLine().toString();
                 switch (option) {
                     case "1":
                         System.out.println("Add new task");
-                        planner.add(new Task("Buy 1 kg of potato"));
+                        actions.addNewTask(planner);
                         break;
                     case "2":
                         System.out.println("Show all tasks");
-                        planner.showAll();
+                        actions.showAllTasks(planner);
                         break;
                     case "3":
                         System.out.println("Sort tasks by priority");
-                        planner.sortByPriority();
-                        planner.showAll();
+                        actions.showSortedByPriority(planner);
                         break;
                     case "4":
                         System.out.println("Delete task by number");
+
+                        break;
                     case "5":
                         System.out.println("Export");
                     case "6":
