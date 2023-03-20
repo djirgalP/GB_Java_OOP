@@ -15,8 +15,10 @@ public class MenuSwitchCase {
         System.out.println("3 - Sort tasks by priority");
         System.out.println("4 - Delete task by number");
         System.out.println("5 - Search task by any string");
-        System.out.println("6 - Export");
-        System.out.println("7 - Quit");
+        System.out.println("6 - Export to CSV file");
+        System.out.println("7 - Export to JSON file");
+        System.out.println("8 - Export to XML file");
+        System.out.println("9 - Quit");
     }
 
     public void startMenu(Planner planner) {
@@ -49,16 +51,24 @@ public class MenuSwitchCase {
                         actions.searchTaskByString();
                         break;
                     case "6":
-                        System.out.println("Exporting:");
-                        actions.exportTasks();
+                        System.out.println("Exporting to CSV:");
+                        actions.exportTasksToCSV();
                         break;
                     case "7":
+                        System.out.println("Exporting to JSON:");
+                        actions.exportTasksToJSON();
+                        break;
+                    case "8":
+                        System.out.println("Exporting to XML:");
+                        actions.exportTasksToXML();
+                        break;
+                    case "9":
                         System.out.println("Shutting down the program...");
                         break;
                     default:
                         System.out.println("You've entered incorrect menu number...\n");
                 }
-            } while (!option.equals("7"));
+            } while (!option.equals("9"));
         }
     }
 }

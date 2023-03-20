@@ -6,6 +6,8 @@ public class UserActions implements UserActionsImpl {
     private final Scanner scanner;
     private final Planner planner;
     protected static String CSVFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework4/Planner.csv";
+    protected static String JSONFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework4/Planner.json";
+    protected static String XMLFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework4/Planner.xml";
 
     public UserActions(Scanner scanner, Planner planner) {
         this.scanner = scanner;
@@ -76,7 +78,7 @@ public class UserActions implements UserActionsImpl {
     }
 
     @Override
-    public void exportTasks(){
+    public void exportTasksToCSV(){
         IteratorOfPlanner iteratorOfPlanner = new IteratorOfPlanner(planner);
             while (iteratorOfPlanner.hasNext()) {
                 ExportModel<Task> saved = new ExportModel<>(iteratorOfPlanner.next());
@@ -85,5 +87,27 @@ public class UserActions implements UserActionsImpl {
                 saved.save();
             }
             System.out.println("Saved to CSV file");
+    }
+    @Override
+    public void exportTasksToJSON(){
+        IteratorOfPlanner iteratorOfPlanner = new IteratorOfPlanner(planner);
+        while (iteratorOfPlanner.hasNext()) {
+            ExportModel<Task> saved = new ExportModel<>(iteratorOfPlanner.next());
+            saved.setFormat(new ExportToJSON());
+            saved.setPath(JSONFile);
+            saved.save();
+        }
+        System.out.println("Saved to JSON file");
+    }
+    @Override
+    public void exportTasksToXML(){
+        IteratorOfPlanner iteratorOfPlanner = new IteratorOfPlanner(planner);
+        while (iteratorOfPlanner.hasNext()) {
+            ExportModel<Task> saved = new ExportModel<>(iteratorOfPlanner.next());
+            saved.setFormat(new ExportToXML());
+            saved.setPath(XMLFile);
+            saved.save();
+        }
+        System.out.println("Saved to XML file");
     }
 }

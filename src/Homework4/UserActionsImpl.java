@@ -6,5 +6,7 @@ public interface UserActionsImpl {
     public void showSortedByPriority();
     public void deleteTaskByNumber();
     public void searchTaskByString();
-    public void exportTasks();
+    public void exportTasksToCSV();
+    public void exportTasksToJSON();
+    public void exportTasksToXML();
 }
