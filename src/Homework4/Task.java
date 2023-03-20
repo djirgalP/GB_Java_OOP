@@ -114,6 +114,26 @@ public class Task implements Comparable<Task>{
         this.description = description;
     }
 
+    public String getResponsible() {
+        return responsiblePerson;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public String getCreatedTime() {
+        return createdTime;
+    }
+
+    public String getDeadlineDate() {
+        return deadlineDate;
+    }
+
+    public String getDeadlineTime() {
+        return deadlineTime;
+    }
+
     @Override
     public String toString() {
         return "Task №" + getId() +
