@@ -13,6 +13,17 @@ public class Planner implements Iterable<Task>{
         this.tasks.add(task);
     }
 
+    public void delete(int number) {
+        Iterator<Task> taskIterator = tasks.iterator();
+        while (taskIterator.hasNext()) {
+            Task nextTask = taskIterator.next();
+            if (nextTask.getId() == number){
+                taskIterator.remove();
+                System.out.printf("Task number %d was deleted\n", number);
+            }
+        }
+    }
+
     public int getSize() {
         return tasks.size();
     }
@@ -39,7 +50,7 @@ public class Planner implements Iterable<Task>{
 
     public void totalSearch(String keyword) {
         int number = 0;
-        System.out.println("Searching by word " + keyword);
+        System.out.printf("The result of searching by word \"%s\" :\n", keyword);
         for (Task task : tasks) {
             String temp = task.toString();
             if (temp.toLowerCase().contains(keyword.toLowerCase())) {

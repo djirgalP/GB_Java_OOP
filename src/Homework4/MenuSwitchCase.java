@@ -14,8 +14,9 @@ public class MenuSwitchCase {
         System.out.println("2 - Show all tasks");
         System.out.println("3 - Sort tasks by priority");
         System.out.println("4 - Delete task by number");
-        System.out.println("5 - Export");
-        System.out.println("6 - Quit");
+        System.out.println("5 - Search task by any string");
+        System.out.println("6 - Export");
+        System.out.println("7 - Quit");
     }
 
     public void startMenu(Planner planner) {
@@ -28,30 +29,36 @@ public class MenuSwitchCase {
                 option = this.scanner.nextLine().toString();
                 switch (option) {
                     case "1":
-                        System.out.println("Add new task");
+                        System.out.println("Adding a new task:");
                         actions.addNewTask(planner);
                         break;
                     case "2":
-                        System.out.println("Show all tasks");
+                        System.out.println("Showing all tasks:");
                         actions.showAllTasks(planner);
                         break;
                     case "3":
-                        System.out.println("Sort tasks by priority");
+                        System.out.println("Sorting the tasks by priority:");
                         actions.showSortedByPriority(planner);
                         break;
                     case "4":
-                        System.out.println("Delete task by number");
-
+                        System.out.println("Deleting a task by number:");
+                        actions.deleteTaskByNumber(planner);
                         break;
                     case "5":
-                        System.out.println("Export");
+                        System.out.println("Searching a task by string:");
+                        actions.searchTaskByString(planner);
+                        break;
                     case "6":
+                        System.out.println("Export");
+                        actions.exportTasks(planner);
+                        break;
+                    case "7":
                         System.out.println("Shutting down the program...");
                         break;
                     default:
                         System.out.println("You've entered incorrect menu number...\n");
                 }
-            } while (!option.equals("6"));
+            } while (!option.equals("7"));
         }
     }
 }

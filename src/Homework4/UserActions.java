@@ -42,13 +42,42 @@ public class UserActions implements UserActionsImpl {
 
     @Override
     public void showAllTasks(Planner planner) {
-        planner.showAll();
-    }
-    @Override
-    public void showSortedByPriority(Planner planner){
-        planner.showSortedByPriority();
+        if (planner.getSize() > 0)
+            planner.showAll();
+        else
+            System.out.println("The planner of tasks is empty...");
     }
 
-    public void deleteTask(){}
-    public void exportTasks(){}
+    @Override
+    public void showSortedByPriority(Planner planner){
+        if (planner.getSize() > 0)
+            planner.showSortedByPriority();
+        else
+            System.out.println("The planner of tasks is empty...");
+    }
+
+    @Override
+    public void deleteTaskByNumber(Planner planner){
+        if (planner.getSize() > 0) {
+            System.out.println("Enter the number of Task for deletion --> ");
+            int number = Integer.parseInt(scanner.nextLine());
+            planner.delete(number);
+        } else {
+            System.out.println("The planner of tasks is empty....");
+        }
+    }
+
+    @Override
+    public void searchTaskByString(Planner planner){
+        if (planner.getSize() > 0) {
+            System.out.println("Enter the word or part of the string of Task for searching --> ");
+            String keyword = scanner.nextLine();
+            planner.totalSearch(keyword);
+        } else {
+            System.out.println("The planner of tasks is empty...");
+        }
+    }
+
+    @Override
+    public void exportTasks(Planner planner){}
 }

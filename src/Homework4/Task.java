@@ -97,10 +97,6 @@ public class Task implements Comparable<Task>{
         };
     }
 
-    public void setPriority(Priority priority) {
-        this.priority = priority;
-    }
-
     public static Priority setPriorityCode(int number) {
         return switch (number) {
             case 1 -> LOW;
