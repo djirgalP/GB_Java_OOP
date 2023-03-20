@@ -30,27 +30,27 @@ public class MenuSwitchCase {
                 switch (option) {
                     case "1":
                         System.out.println("Adding a new task:");
-                        actions.addNewTask(planner);
+                        actions.addNewTask();
                         break;
                     case "2":
                         System.out.println("Showing all tasks:");
-                        actions.showAllTasks(planner);
+                        actions.showAllTasks();
                         break;
                     case "3":
                         System.out.println("Sorting the tasks by priority:");
-                        actions.showSortedByPriority(planner);
+                        actions.showSortedByPriority();
                         break;
                     case "4":
                         System.out.println("Deleting a task by number:");
-                        actions.deleteTaskByNumber(planner);
+                        actions.deleteTaskByNumber();
                         break;
                     case "5":
                         System.out.println("Searching a task by string:");
-                        actions.searchTaskByString(planner);
+                        actions.searchTaskByString();
                         break;
                     case "6":
-                        System.out.println("Export");
-                        actions.exportTasks(planner);
+                        System.out.println("Exporting:");
+                        actions.exportTasks();
                         break;
                     case "7":
                         System.out.println("Shutting down the program...");

@@ -4,11 +4,8 @@ import java.util.Scanner;
 
 public class UserActions implements UserActionsImpl {
     private final Scanner scanner;
-    private Planner planner;
+    private final Planner planner;
 
-    public UserActions(Scanner scanner) {
-        this.scanner = scanner;
-    }
 
     public UserActions(Scanner scanner, Planner planner) {
         this.scanner = scanner;
@@ -16,7 +13,7 @@ public class UserActions implements UserActionsImpl {
     }
 
     @Override
-    public void addNewTask(Planner planner) {
+    public void addNewTask() {
         System.out.println("Adding a new Task.\n Enter Task description --> ");
         String descr = scanner.nextLine();
 
@@ -41,7 +38,7 @@ public class UserActions implements UserActionsImpl {
     }
 
     @Override
-    public void showAllTasks(Planner planner) {
+    public void showAllTasks() {
         if (planner.getSize() > 0)
             planner.showAll();
         else
@@ -49,7 +46,7 @@ public class UserActions implements UserActionsImpl {
     }
 
     @Override
-    public void showSortedByPriority(Planner planner){
+    public void showSortedByPriority(){
         if (planner.getSize() > 0)
             planner.showSortedByPriority();
         else
@@ -57,7 +54,7 @@ public class UserActions implements UserActionsImpl {
     }
 
     @Override
-    public void deleteTaskByNumber(Planner planner){
+    public void deleteTaskByNumber(){
         if (planner.getSize() > 0) {
             System.out.println("Enter the number of Task for deletion --> ");
             int number = Integer.parseInt(scanner.nextLine());
@@ -68,7 +65,7 @@ public class UserActions implements UserActionsImpl {
     }
 
     @Override
-    public void searchTaskByString(Planner planner){
+    public void searchTaskByString(){
         if (planner.getSize() > 0) {
             System.out.println("Enter the word or part of the string of Task for searching --> ");
             String keyword = scanner.nextLine();
@@ -79,5 +76,7 @@ public class UserActions implements UserActionsImpl {
     }
 
     @Override
-    public void exportTasks(Planner planner){}
+    public void exportTasks(){
+
+    }
 }
