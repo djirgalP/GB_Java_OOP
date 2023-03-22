@@ -1,4 +1,4 @@
-package Ex002Phonebook.Core.MVP;
+package Homework5.Core.MVP;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,8 +6,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Ex002Phonebook.Core.Infrastructure.Phonebook;
-import Ex002Phonebook.Core.Models.Contact;
+import Homework5.Core.Infrastructure.Phonebook;
+import Homework5.Core.Models.Contact;
 
 public class Model {
 

@@ -1,4 +1,4 @@
-package Ex002Phonebook.Core.Models;
+package Homework5.Core.Models;
 
 import java.time.LocalDate;
 

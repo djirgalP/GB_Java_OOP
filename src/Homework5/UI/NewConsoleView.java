@@ -1,4 +1,4 @@
-package Ex002Phonebook.UI;
+package Homework5.UI;
 
 public class NewConsoleView extends ConsoleView {
     

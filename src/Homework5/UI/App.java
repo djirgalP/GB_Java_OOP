@@ -1,10 +1,10 @@
-package Ex002Phonebook.UI;
+package Homework5.UI;
 
 import java.util.Scanner;
 
-import Ex002Phonebook.Config;
-import Ex002Phonebook.Core.MVP.Presenter;
-import Ex002Phonebook.Core.MVP.View;
+import Homework5.Config;
+import Homework5.Core.MVP.Presenter;
+import Homework5.Core.MVP.View;
 
 public class App {
     public static void ButtonClick() {

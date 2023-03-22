@@ -1,9 +1,9 @@
-package Ex002Phonebook.Core.Infrastructure;
+package Homework5.Core.Infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Ex002Phonebook.Core.Models.Contact;
+import Homework5.Core.Models.Contact;
 
 public class Phonebook {
 

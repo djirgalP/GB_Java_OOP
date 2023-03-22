@@ -1,6 +1,6 @@
-package Ex002Phonebook.Client;
+package Homework5.Client;
 
-import Ex002Phonebook.UI.App;
+import Homework5.UI.App;
 
 public class Program {
 

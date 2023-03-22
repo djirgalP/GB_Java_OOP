@@ -1,4 +1,4 @@
-package Ex002Phonebook.Core.MVP;
+package Homework5.Core.MVP;
 
 public interface View {
     String getFirstName();
