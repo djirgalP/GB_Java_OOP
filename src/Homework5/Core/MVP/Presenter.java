@@ -1,5 +1,6 @@
 package Homework5.Core.MVP;
-import Lecture5.Core.Models.Contact;
+import Homework5.Core.Models.Contact;
+
 public class Presenter {
     
     private Model model;
@@ -19,17 +20,17 @@ public class Presenter {
 
             view.setFirstName(contact.firstName);
             view.setLastName(contact.lastName);
+            view.setPhone(contact.phone);
             view.setDescription(contact.description);
         }
     }
 
     public void add() {
-        model.currentBook().add(
-                new Contact(view.getFirstName(), view.getLastName(), view.getDescription()));
+        model.currentBook().add(new Contact(view.getFirstName(), view.getLastName(), view.getPhone(), view.getDescription()));
     }
 
     public void remove() {
-        Contact contact = new Contact(view.getFirstName(), view.getLastName(), view.getDescription());
+        Contact contact = new Contact(view.getFirstName(), view.getLastName(), view.getPhone(), view.getDescription());
         model.currentBook().remove(contact);
 
         if (model.currentBook().count() < 1) {
@@ -37,6 +38,7 @@ public class Presenter {
 
             view.setFirstName("");
             view.setLastName("");
+            view.setPhone("");
             view.setDescription("");
         } else {
             model.setCurrentIndex(model.getCurrentIndex() - 1);
@@ -46,12 +48,17 @@ public class Presenter {
             Contact temp = model.currentContact();
             view.setFirstName(temp.firstName);
             view.setLastName(temp.lastName);
+            view.setPhone(temp.phone);
             view.setDescription(temp.description);
         }
     }
 
     public void saveToFile() {
         model.save();
+    }
+
+    public void exportToFile() {
+        model.export();
     }
 
     public void next() {
@@ -61,6 +68,7 @@ public class Presenter {
                 Contact contact = model.currentContact();
                 view.setFirstName(contact.firstName);
                 view.setLastName(contact.lastName);
+                view.setPhone(contact.phone);
                 view.setDescription(contact.description);                
             }
         }
@@ -73,6 +81,7 @@ public class Presenter {
                 Contact contact = model.currentContact();
                 view.setFirstName(contact.firstName);
                 view.setLastName(contact.lastName);
+                view.setPhone(contact.phone);
                 view.setDescription(contact.description);  
             }
         }

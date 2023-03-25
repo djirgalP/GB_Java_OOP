@@ -1,7 +1,7 @@
 package Homework5.Core.MVP;
 
-import Lecture5.Core.Infrastructure.Phonebook;
-import Lecture5.Core.Models.Contact;
+import Homework5.Core.Infrastructure.Phonebook;
+import Homework5.Core.Models.Contact;
 
 import java.io.*;
 
@@ -19,9 +19,9 @@ public class Model {
 
     public Contact currentContact() {
         if (currentIndex >= 0) {
-            return currentBook.getCotact(currentIndex);
+            return currentBook.getContact(currentIndex);
         } else {
-            // ???...
+            System.out.println("Index of Contact is incorrect, currentIndex = " + currentIndex);
             return null;
         }
     }
@@ -35,7 +35,8 @@ public class Model {
             while (fname != null) {
                 String lname = reader.readLine();
                 String description = reader.readLine();
-                this.currentBook.add(new Contact(fname, lname, description));
+                String phone = reader.readLine();
+                this.currentBook.add(new Contact(fname, lname, phone, description));
                 fname = reader.readLine();
             }
             reader.close();
@@ -49,9 +50,10 @@ public class Model {
 
         try (FileWriter writer = new FileWriter(path, false)) {
             for (int i = 0; i < currentBook.count(); i++) {
-                Contact contact = currentBook.getCotact(i);
+                Contact contact = currentBook.getContact(i);
                 writer.append(String.format("%s\n", contact.firstName));
                 writer.append(String.format("%s\n", contact.lastName));
+                writer.append(String.format("%s\n", contact.phone));
                 writer.append(String.format("%s\n", contact.description));
             }
             writer.flush();
@@ -61,6 +63,9 @@ public class Model {
         }
     }
 
+    public void export() {
+
+    }
     public Phonebook currentBook() {
         return this.currentBook;
     }
