@@ -1,6 +1,6 @@
-package Homework5.Client;
+package Lecture5.Client;
 
-import Homework5.UI.App;
+import Lecture5.UI.App;
 
 public class Program {
 

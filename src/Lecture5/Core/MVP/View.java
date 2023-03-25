@@ -1,4 +1,4 @@
-package Homework5.Core.MVP;
+package Lecture5.Core.MVP;
 
 public interface View {
     String getFirstName();

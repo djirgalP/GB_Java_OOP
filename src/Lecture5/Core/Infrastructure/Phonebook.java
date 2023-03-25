@@ -1,9 +1,9 @@
-package Homework5.Core.Infrastructure;
+package Lecture5.Core.Infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Homework5.Core.Models.Contact;
+import Lecture5.Core.Models.Contact;
 
 public class Phonebook {
 

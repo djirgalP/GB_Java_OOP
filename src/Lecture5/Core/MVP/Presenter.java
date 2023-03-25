@@ -1,5 +1,5 @@
-package Homework5.Core.MVP;
-import Homework5.Core.Models.Contact;
+package Lecture5.Core.MVP;
+import Lecture5.Core.Models.Contact;
 public class Presenter {
     
     private Model model;

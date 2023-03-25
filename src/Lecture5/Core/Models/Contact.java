@@ -1,4 +1,4 @@
-package Homework5.Core.Models;
+package Lecture5.Core.Models;
 
 import java.time.LocalDate;
 

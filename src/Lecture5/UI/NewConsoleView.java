@@ -1,4 +1,4 @@
-package Homework5.UI;
+package Lecture5.UI;
 
 public class NewConsoleView extends ConsoleView {
     

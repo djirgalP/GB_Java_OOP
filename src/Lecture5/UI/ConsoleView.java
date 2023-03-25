@@ -1,8 +1,8 @@
-package Homework5.UI;
+package Lecture5.UI;
 
 import java.util.Scanner;
 
-import Homework5.Core.MVP.View;
+import Lecture5.Core.MVP.View;
 
 public class ConsoleView implements View {
     Scanner in;

@@ -1,10 +1,10 @@
-package Homework5.UI;
+package Lecture5.UI;
 
 import java.util.Scanner;
 
-import Homework5.Config;
-import Homework5.Core.MVP.Presenter;
-import Homework5.Core.MVP.View;
+import Lecture5.Config;
+import Lecture5.Core.MVP.Presenter;
+import Lecture5.Core.MVP.View;
 
 public class App {
     public static void ButtonClick() {
