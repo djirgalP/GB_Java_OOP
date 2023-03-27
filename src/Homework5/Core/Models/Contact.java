@@ -64,6 +64,10 @@ public class Contact implements Comparable<Contact>{
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == this)
+            return true;
+        if (obj == null || obj.getClass() != this.getClass())
+            return false;
         Contact t = (Contact)obj;
         return (this.firstName.equals(t.firstName) && this.lastName.equals(t.lastName));
     }
