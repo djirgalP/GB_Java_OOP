@@ -1,8 +1,8 @@
-package Lecture5.UI;
+package Homework5.UI;
+
+import Homework5.Core.MVP.View;
 
 import java.util.Scanner;
-
-import Lecture5.Core.MVP.View;
 
 public class ConsoleView implements View {
     Scanner in;
@@ -32,6 +32,17 @@ public class ConsoleView implements View {
     }
 
     @Override
+    public String getPhone() {
+        System.out.printf("Phone: ");
+        return in.nextLine();
+    }
+
+    @Override
+    public void setPhone(String value) {
+        System.out.printf("Phone: %s\n", value);
+    }
+
+    @Override
     public String getDescription() {
         System.out.printf("Description: ");
         return in.nextLine();
@@ -39,7 +50,6 @@ public class ConsoleView implements View {
 
     @Override
     public void setDescription(String value) {
-        System.out.printf("Description: %s\n", value);        
+        System.out.printf("Description: %s\n", value);
     }
-    
 }

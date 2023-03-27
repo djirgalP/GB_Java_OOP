@@ -1,14 +1,13 @@
-package Lecture5.Core.Infrastructure;
+package Homework5.Core.Infrastructure;
+
+import Homework5.Core.Models.Contact;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Lecture5.Core.Models.Contact;
-
 public class Phonebook {
-
     private List<Contact> contacts;
-    
+
     public Phonebook() {
         contacts = new ArrayList<Contact>();
     }
@@ -24,12 +23,9 @@ public class Phonebook {
     }
 
     // read
-    public Contact getCotact(int index) {
+    public Contact getContact(int index) {
         return contains(index) ? contacts.get(index) : null;
     }
-
-    // update
-    // ???...
 
     // delete
     public boolean remove(Contact contact) {
@@ -56,5 +52,4 @@ public class Phonebook {
     public int count() {
         return contacts.size();
     }
-
 }

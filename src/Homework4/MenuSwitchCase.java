@@ -28,7 +28,7 @@ public class MenuSwitchCase {
             do {
                 printMenu();
                 System.out.print("Please, enter a number of the operation:\n");
-                option = this.scanner.nextLine().toString();
+                option = this.scanner.nextLine();
                 switch (option) {
                     case "1":
                         System.out.println("Adding a new task:");
