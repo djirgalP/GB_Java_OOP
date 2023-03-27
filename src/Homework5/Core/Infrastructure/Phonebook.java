@@ -27,9 +27,6 @@ public class Phonebook {
         return contains(index) ? contacts.get(index) : null;
     }
 
-    // update
-    // ???...
-
     // delete
     public boolean remove(Contact contact) {
         boolean flag = false;

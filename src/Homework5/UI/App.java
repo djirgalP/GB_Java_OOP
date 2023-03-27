@@ -16,7 +16,7 @@ public class App {
         try (Scanner in = new Scanner(System.in)) {
 
             while (true) {
-                System.out.println(" 1 - prev  2 - next 3 - delete current 4 - add contact 5 - save 6 - export");
+                System.out.println(" 1 - previous contact 2 - next contact\n3 - delete contact 4 - add contact \n5 - CSV 6 - JSON 7 - XML 8 - Save in DB");
                 String key = in.next();
                 System.out.print("\033[H\033[J");
                 switch (key) {
@@ -28,14 +28,21 @@ public class App {
                         break;
                     case "3":
                         presenter.remove();
+                        break;
                     case "4":
                         presenter.add();
                         break;
                     case "5":
-                        presenter.saveToFile();
+                        presenter.exportToFile("CSV");
                         break;
                     case "6":
-                        presenter.exportToFile();
+                        presenter.exportToFile("JSON");
+                        break;
+                    case "7":
+                        presenter.exportToFile("XML");
+                        break;
+                    case "8":
+                        presenter.saveToFile();
                         break;
                     default:
                         System.out.println("No such command");
@@ -45,4 +52,6 @@ public class App {
         }
 
     }
+
+
 }

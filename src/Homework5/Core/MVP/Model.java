@@ -1,6 +1,5 @@
 package Homework5.Core.MVP;
-
-import Homework5.Core.Infrastructure.Phonebook;
+import Homework5.Core.Infrastructure.*;
 import Homework5.Core.Models.Contact;
 
 import java.io.*;
@@ -9,7 +8,10 @@ public class Model {
 
     Phonebook currentBook;
     private int currentIndex;
-    private String path;
+    private String path;//for import
+    protected static String CSVFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework5/Phonebook.csv";
+    protected static String JSONFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework5/Phonebook.json";
+    protected static String XMLFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework5/Phonebook.xml";
 
     public Model(String path) {
         currentBook = new Phonebook();
@@ -47,7 +49,6 @@ public class Model {
     }
 
     public void save() {
-
         try (FileWriter writer = new FileWriter(path, false)) {
             for (int i = 0; i < currentBook.count(); i++) {
                 Contact contact = currentBook.getContact(i);
@@ -63,8 +64,37 @@ public class Model {
         }
     }
 
-    public void export() {
+    public void exportToCSV() {
+        PhonebookIterator phonebookIterator = new PhonebookIterator(currentBook);
+        while (phonebookIterator.hasNext()) {
+            ExpModel<Contact> saved = new ExpModel<>(phonebookIterator.next());
+            saved.setFormat(new ExportToCSV());
+            saved.setPath(CSVFile);
+            saved.save();
+        }
+        System.out.println("Saved to CSV file");
+    }
 
+    public void exportToJSON() {
+        PhonebookIterator phonebookIterator = new PhonebookIterator(currentBook);
+        while (phonebookIterator.hasNext()) {
+            ExpModel<Contact> saved = new ExpModel<>(phonebookIterator.next());
+            saved.setFormat(new ExportToJSON());
+            saved.setPath(JSONFile);
+            saved.save();
+        }
+        System.out.println("Saved to JSON file");
+    }
+
+    public void exportToXML() {
+        PhonebookIterator phonebookIterator = new PhonebookIterator(currentBook);
+        while (phonebookIterator.hasNext()) {
+            ExpModel<Contact> saved = new ExpModel<>(phonebookIterator.next());
+            saved.setFormat(new ExportToXML());
+            saved.setPath(XMLFile);
+            saved.save();
+        }
+        System.out.println("Saved to XML file");
     }
     public Phonebook currentBook() {
         return this.currentBook;

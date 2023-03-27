@@ -148,9 +148,13 @@ public class Task implements Comparable<Task>{
 
     @Override
     public int compareTo(Task o) {
-        int compareId
-                = o.getId();
-        return this.id - compareId;
+        return this.id - o.getId();
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        Task t = (Task) obj;
+        return (this.description.equals(t.getDescription()) && this.responsiblePerson.equals(t.getResponsible()));
     }
 
 }

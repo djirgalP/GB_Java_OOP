@@ -52,15 +52,19 @@ public class Contact implements Comparable<Contact>{
         this.description = description;
     }
 
+    public String getFullName() {
+        return lastName + ' ' + firstName;
+    }
+
+
     @Override
     public int compareTo(Contact o) {
-        // ???...
-        return 0;
+        return this.getFullName().compareTo(o.getFullName());
     }
 
     @Override
     public boolean equals(Object obj) {
-        Homework5.Core.Models.Contact t = (Homework5.Core.Models.Contact)obj;
+        Contact t = (Contact)obj;
         return (this.firstName.equals(t.firstName) && this.lastName.equals(t.lastName));
     }
 }

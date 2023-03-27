@@ -7,7 +7,7 @@ public class ExpModel <C extends Contact>{
     String text;
     String path;
     C contact;
-    public ExpModel(C task) {
+    public ExpModel(C contact) {
         this.contact = contact;
     }
 

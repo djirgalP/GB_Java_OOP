@@ -57,8 +57,22 @@ public class Presenter {
         model.save();
     }
 
-    public void exportToFile() {
-        model.export();
+    public void exportToFile(String fileFormat) {
+        switch (fileFormat) {
+            case "CSV":
+                model.exportToCSV();
+                break;
+            case "JSON":
+                model.exportToJSON();
+                break;
+            case "XML":
+                model.exportToXML();
+                break;
+            default:
+                System.out.println("File type for export is not supported");
+                break;
+        }
+
     }
 
     public void next() {

@@ -3,8 +3,6 @@ package Homework4;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class SaveFile {
     public static void saveTextToFile(String text, String path) {
