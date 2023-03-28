@@ -22,3 +22,33 @@
 "Phone":+79045240444,
 "Description":test,
 }
+{
+"FirstName":Name1,
+"LastName":Surname1,
+"Phone":+79015632931 | +79012350621 | +79015678911,
+"Description":Sibling,
+}
+{
+"FirstName":Name2,
+"LastName":Surname2,
+"Phone":+79022222222,
+"Description":Colleague,
+}
+{
+"FirstName":Name3,
+"LastName":Surname3,
+"Phone":+79033333333,
+"Description":Classmate,
+}
+{
+"FirstName":Name4,
+"LastName":Surname4,
+"Phone":test,
+"Description":+79045240444,
+}
+{
+"FirstName":Dji,
+"LastName":Ga,
+"Phone":+79371931304 | +79261717503,
+"Description":Me,
+}

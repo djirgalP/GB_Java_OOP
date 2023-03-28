@@ -1,22 +1,26 @@
 package Homework5.Core.Models;
 
 
-public class Contact implements Comparable<Contact>{
+import java.util.*;
+
+public class Contact implements Comparable<Contact>, Parser{
     public String firstName;
     public String lastName;
-    public String phone;
+    public HashSet<String> phones;
     public String description;
 
     public Contact(String firstName, String lastName, String description) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.phones = new HashSet<>();
         this.description = description;
     }
 
-    public Contact(String firstName, String lastName, String phone, String description) {
+    public Contact(String firstName, String lastName, String phones, String description) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phone = phone;
+        this.phones = new HashSet<>();
+        this.phones = fromStringToSet(phones);
         this.description = description;
     }
 
@@ -36,14 +40,41 @@ public class Contact implements Comparable<Contact>{
         this.lastName = lastName;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhones() {
+        String phonesString = "";
+        if (!this.phones.isEmpty()){
+            Iterator<String> itr = this.phones.iterator();
+            phonesString = String.valueOf(itr.next());
+            while(itr.hasNext())
+                phonesString += " | " + itr.next();
+        }
+        return phonesString;
+    }
+    @Override
+    public HashSet<String> fromStringToSet(String str) {
+        List<String> phonesArray = new ArrayList<>(Arrays.asList(str.split("[;|, ]")));
+        Iterator<String> phonesIterator = phonesArray.iterator();
+
+        while(phonesIterator.hasNext()) {
+            String value = phonesIterator.next();
+            //System.out.println(value);
+            if (value.equals("")){
+                //System.out.println("removing empty values");
+                phonesIterator.remove();
+            }
+        }
+        return new HashSet<>(phonesArray);
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+    public void addPhone(String phone) {
+        if (this.phones.isEmpty()) {
+            this.phones = new HashSet<>();
+            this.phones.add(phone);
+        }
+        else
+            this.phones.add(phone);
 
+    }
     public String getDescription() {
         return description;
     }

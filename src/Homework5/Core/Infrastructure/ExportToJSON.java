@@ -13,6 +13,6 @@ public class ExportToJSON implements ExpFormat {
                 "Phone":%s,
                 "Description":%s,
                 }
-                """, contact.getFirstName(), contact.getLastName(), contact.getPhone(), contact.getDescription());
+                """, contact.getFirstName(), contact.getLastName(), contact.getPhones(), contact.getDescription());
     }
 }

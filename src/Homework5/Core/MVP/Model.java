@@ -8,7 +8,7 @@ public class Model {
 
     Phonebook currentBook;
     private int currentIndex;
-    private String path;//for import
+    private final String path;//for import
     protected static String CSVFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework5/Phonebook.csv";
     protected static String JSONFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework5/Phonebook.json";
     protected static String XMLFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework5/Phonebook.xml";
@@ -54,7 +54,7 @@ public class Model {
                 Contact contact = currentBook.getContact(i);
                 writer.append(String.format("%s\n", contact.firstName));
                 writer.append(String.format("%s\n", contact.lastName));
-                writer.append(String.format("%s\n", contact.phone));
+                writer.append(String.format("%s\n", contact.getPhones()));
                 writer.append(String.format("%s\n", contact.description));
             }
             writer.flush();

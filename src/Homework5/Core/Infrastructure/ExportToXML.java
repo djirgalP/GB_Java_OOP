@@ -14,7 +14,7 @@ public class ExportToXML implements ExpFormat {
                 <Phone>%s</Phone>
                 <Description>%s</Description>
                 </Contact></xml>
-                """, contact.getFirstName(), contact.getLastName(), contact.getPhone(), contact.getDescription());
+                """, contact.getFirstName(), contact.getLastName(), contact.getPhones(), contact.getDescription());
     }
 }
 

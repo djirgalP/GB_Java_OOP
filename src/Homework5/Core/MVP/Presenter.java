@@ -20,7 +20,7 @@ public class Presenter {
 
             view.setFirstName(contact.firstName);
             view.setLastName(contact.lastName);
-            view.setPhone(contact.phone);
+            view.setPhone(contact.getPhones());
             view.setDescription(contact.description);
         }
     }
@@ -48,7 +48,7 @@ public class Presenter {
             Contact temp = model.currentContact();
             view.setFirstName(temp.firstName);
             view.setLastName(temp.lastName);
-            view.setPhone(temp.phone);
+            view.setPhone(temp.getPhones());
             view.setDescription(temp.description);
         }
     }
@@ -82,7 +82,7 @@ public class Presenter {
                 Contact contact = model.currentContact();
                 view.setFirstName(contact.firstName);
                 view.setLastName(contact.lastName);
-                view.setPhone(contact.phone);
+                view.setPhone(contact.getPhones());
                 view.setDescription(contact.description);                
             }
         }
@@ -95,7 +95,7 @@ public class Presenter {
                 Contact contact = model.currentContact();
                 view.setFirstName(contact.firstName);
                 view.setLastName(contact.lastName);
-                view.setPhone(contact.phone);
+                view.setPhone(contact.getPhones());
                 view.setDescription(contact.description);  
             }
         }
