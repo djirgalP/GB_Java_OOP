@@ -1,4 +1,6 @@
 package Homework5.Core.MVP;
+import Homework5.Config;
+import Homework5.Core.Infrastructure.*;
 import Homework5.Core.Models.Contact;
 
 public class Presenter {
@@ -53,20 +55,19 @@ public class Presenter {
         }
     }
 
-    public void saveToFile() {
-        model.save();
-    }
-
     public void exportToFile(String fileFormat) {
         switch (fileFormat) {
             case "CSV":
-                model.exportToCSV();
+                model.exportToFile(Config.CSVFile, new ExportToCSV());
                 break;
             case "JSON":
-                model.exportToJSON();
+                model.exportToFile(Config.JSONFile, new ExportToJSON());
                 break;
             case "XML":
-                model.exportToXML();
+                model.exportToFile(Config.XMLFile, new ExportToXML());
+                break;
+            case "DB":
+                model.exportToFile(Config.pathDb, new ExportToDB());
                 break;
             default:
                 System.out.println("File type for export is not supported");

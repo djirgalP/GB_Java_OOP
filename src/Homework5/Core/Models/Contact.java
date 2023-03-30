@@ -1,9 +1,11 @@
 package Homework5.Core.Models;
 
 
+import Homework5.Config;
+
 import java.util.*;
 
-public class Contact implements Comparable<Contact>, Parser{
+public class Contact implements Comparable<Contact>{
     public String firstName;
     public String lastName;
     public HashSet<String> phones;
@@ -19,8 +21,8 @@ public class Contact implements Comparable<Contact>, Parser{
     public Contact(String firstName, String lastName, String phones, String description) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phones = new HashSet<>();
-        this.phones = fromStringToSet(phones);
+        Parser parser = new Parser(Config.regex);
+        this.phones = new HashSet<>(parser.fromStringToSet(phones));
         this.description = description;
     }
 
@@ -49,21 +51,6 @@ public class Contact implements Comparable<Contact>, Parser{
                 phonesString += " | " + itr.next();
         }
         return phonesString;
-    }
-    @Override
-    public HashSet<String> fromStringToSet(String str) {
-        List<String> phonesArray = new ArrayList<>(Arrays.asList(str.split("[;|, ]")));
-        Iterator<String> phonesIterator = phonesArray.iterator();
-
-        while(phonesIterator.hasNext()) {
-            String value = phonesIterator.next();
-            //System.out.println(value);
-            if (value.equals("")){
-                //System.out.println("removing empty values");
-                phonesIterator.remove();
-            }
-        }
-        return new HashSet<>(phonesArray);
     }
 
     public void addPhone(String phone) {
