@@ -1,22 +1,28 @@
 package Homework5.Core.Models;
 
 
+import Homework5.Config;
+
+import java.util.*;
+
 public class Contact implements Comparable<Contact>{
     public String firstName;
     public String lastName;
-    public String phone;
+    public HashSet<String> phones;
     public String description;
 
     public Contact(String firstName, String lastName, String description) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.phones = new HashSet<>();
         this.description = description;
     }
 
-    public Contact(String firstName, String lastName, String phone, String description) {
+    public Contact(String firstName, String lastName, String phones, String description) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phone = phone;
+        Parser parser = new Parser(Config.regex);
+        this.phones = new HashSet<>(parser.fromStringToSet(phones));
         this.description = description;
     }
 
@@ -36,14 +42,26 @@ public class Contact implements Comparable<Contact>{
         this.lastName = lastName;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhones() {
+        String phonesString = "";
+        if (!this.phones.isEmpty()){
+            Iterator<String> itr = this.phones.iterator();
+            phonesString = String.valueOf(itr.next());
+            while(itr.hasNext())
+                phonesString += " | " + itr.next();
+        }
+        return phonesString;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+    public void addPhone(String phone) {
+        if (this.phones.isEmpty()) {
+            this.phones = new HashSet<>();
+            this.phones.add(phone);
+        }
+        else
+            this.phones.add(phone);
 
+    }
     public String getDescription() {
         return description;
     }
@@ -64,7 +82,20 @@ public class Contact implements Comparable<Contact>{
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == this)
+            return true;
+        if (obj == null || obj.getClass() != this.getClass())
+            return false;
         Contact t = (Contact)obj;
         return (this.firstName.equals(t.firstName) && this.lastName.equals(t.lastName));
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+        result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+        return result;
     }
 }

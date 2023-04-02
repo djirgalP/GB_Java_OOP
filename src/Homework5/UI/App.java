@@ -42,7 +42,7 @@ public class App {
                         presenter.exportToFile("XML");
                         break;
                     case "8":
-                        presenter.saveToFile();
+                        presenter.exportToFile("DB");
                         break;
                     default:
                         System.out.println("No such command");

@@ -1,4 +1,6 @@
 package Homework5.Core.MVP;
+import Homework5.Config;
+import Homework5.Core.Infrastructure.*;
 import Homework5.Core.Models.Contact;
 
 public class Presenter {
@@ -20,7 +22,7 @@ public class Presenter {
 
             view.setFirstName(contact.firstName);
             view.setLastName(contact.lastName);
-            view.setPhone(contact.phone);
+            view.setPhone(contact.getPhones());
             view.setDescription(contact.description);
         }
     }
@@ -48,25 +50,24 @@ public class Presenter {
             Contact temp = model.currentContact();
             view.setFirstName(temp.firstName);
             view.setLastName(temp.lastName);
-            view.setPhone(temp.phone);
+            view.setPhone(temp.getPhones());
             view.setDescription(temp.description);
         }
-    }
-
-    public void saveToFile() {
-        model.save();
     }
 
     public void exportToFile(String fileFormat) {
         switch (fileFormat) {
             case "CSV":
-                model.exportToCSV();
+                model.exportToFile(Config.CSVFile, new ExportToCSV());
                 break;
             case "JSON":
-                model.exportToJSON();
+                model.exportToFile(Config.JSONFile, new ExportToJSON());
                 break;
             case "XML":
-                model.exportToXML();
+                model.exportToFile(Config.XMLFile, new ExportToXML());
+                break;
+            case "DB":
+                model.exportToFile(Config.pathDb, new ExportToDB());
                 break;
             default:
                 System.out.println("File type for export is not supported");
@@ -82,7 +83,7 @@ public class Presenter {
                 Contact contact = model.currentContact();
                 view.setFirstName(contact.firstName);
                 view.setLastName(contact.lastName);
-                view.setPhone(contact.phone);
+                view.setPhone(contact.getPhones());
                 view.setDescription(contact.description);                
             }
         }
@@ -95,7 +96,7 @@ public class Presenter {
                 Contact contact = model.currentContact();
                 view.setFirstName(contact.firstName);
                 view.setLastName(contact.lastName);
-                view.setPhone(contact.phone);
+                view.setPhone(contact.getPhones());
                 view.setDescription(contact.description);  
             }
         }
