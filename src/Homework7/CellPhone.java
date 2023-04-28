@@ -66,14 +66,17 @@ public class CellPhone extends Phone implements SMSImpl, GSMImpl{
 
     @Override
     public String receiveSms(){
-        String sms = "sms received";
+        String sms = "This is a text for sms";
         System.out.println("Cell phone receives sms");
         return sms;
     }
 
     public void turnOn(){
         getOperatorData(); // получаем инфо об операторе моб. сети
-        if (setUpConnection("MTS")) // устанавливаем соединение
+        if (setUpConnection("MTS")) {// устанавливаем соединение
             setConnectionExists();
+            passInfo(getIMEI());
+            System.out.println(receiveSms());
+        }
     }
 }
