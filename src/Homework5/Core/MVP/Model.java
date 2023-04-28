@@ -1,4 +1,5 @@
 package Homework5.Core.MVP;
+import Homework5.Config;
 import Homework5.Core.Infrastructure.*;
 import Homework5.Core.Models.Contact;
 
@@ -8,10 +9,8 @@ public class Model {
 
     Phonebook currentBook;
     private int currentIndex;
-    private String path;//for import
-    protected static String CSVFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework5/Phonebook.csv";
-    protected static String JSONFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework5/Phonebook.json";
-    protected static String XMLFile = "/Users/Admin/IdeaProjects/GB_Java_OOP/src/Homework5/Phonebook.xml";
+    private final String path;//for import
+
 
     public Model(String path) {
         currentBook = new Phonebook();
@@ -36,8 +35,8 @@ public class Model {
             String fname = reader.readLine();
             while (fname != null) {
                 String lname = reader.readLine();
-                String description = reader.readLine();
                 String phone = reader.readLine();
+                String description = reader.readLine();
                 this.currentBook.add(new Contact(fname, lname, phone, description));
                 fname = reader.readLine();
             }
@@ -48,54 +47,17 @@ public class Model {
         }
     }
 
-    public void save() {
-        try (FileWriter writer = new FileWriter(path, false)) {
-            for (int i = 0; i < currentBook.count(); i++) {
-                Contact contact = currentBook.getContact(i);
-                writer.append(String.format("%s\n", contact.firstName));
-                writer.append(String.format("%s\n", contact.lastName));
-                writer.append(String.format("%s\n", contact.phone));
-                writer.append(String.format("%s\n", contact.description));
-            }
-            writer.flush();
-            writer.close();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
-    public void exportToCSV() {
+    public void exportToFile(String exportFileName, ExpFormat expFormat) {
         PhonebookIterator phonebookIterator = new PhonebookIterator(currentBook);
         while (phonebookIterator.hasNext()) {
             ExpModel<Contact> saved = new ExpModel<>(phonebookIterator.next());
-            saved.setFormat(new ExportToCSV());
-            saved.setPath(CSVFile);
+            saved.setFormat(expFormat);
+            saved.setPath(exportFileName);
             saved.save();
         }
-        System.out.println("Saved to CSV file");
+        System.out.println("Saved to file: " + exportFileName);
     }
 
-    public void exportToJSON() {
-        PhonebookIterator phonebookIterator = new PhonebookIterator(currentBook);
-        while (phonebookIterator.hasNext()) {
-            ExpModel<Contact> saved = new ExpModel<>(phonebookIterator.next());
-            saved.setFormat(new ExportToJSON());
-            saved.setPath(JSONFile);
-            saved.save();
-        }
-        System.out.println("Saved to JSON file");
-    }
-
-    public void exportToXML() {
-        PhonebookIterator phonebookIterator = new PhonebookIterator(currentBook);
-        while (phonebookIterator.hasNext()) {
-            ExpModel<Contact> saved = new ExpModel<>(phonebookIterator.next());
-            saved.setFormat(new ExportToXML());
-            saved.setPath(XMLFile);
-            saved.save();
-        }
-        System.out.println("Saved to XML file");
-    }
     public Phonebook currentBook() {
         return this.currentBook;
     }
