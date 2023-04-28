@@ -1,5 +1,6 @@
 package Homework7;
 
 public interface SMSImpl {
-    void sms();
+    void sendSms(String sms);
+    String receiveSms();
 }
