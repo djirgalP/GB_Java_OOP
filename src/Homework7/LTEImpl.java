@@ -1,5 +1,5 @@
 package Homework7;
 
 public interface LTEImpl {
-    String getConnectionType();
+    boolean setUp4GConnection(String operatorName);
 }
