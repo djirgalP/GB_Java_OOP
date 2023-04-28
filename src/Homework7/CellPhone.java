@@ -25,8 +25,8 @@ public class CellPhone extends Phone implements SMSImpl, GSMImpl{
         return this.phoneOperator;
     }
 
-    public void setConnectionExists() {
-        this.connectionExists = true;
+    public void setConnectionExists(boolean exists) {
+        this.connectionExists = exists;
     }
 
     @Override
@@ -74,9 +74,13 @@ public class CellPhone extends Phone implements SMSImpl, GSMImpl{
     public void turnOn(){
         getOperatorData(); // получаем инфо об операторе моб. сети
         if (setUpConnection("MTS")) {// устанавливаем соединение
-            setConnectionExists();
+            setConnectionExists(true);
             passInfo(getIMEI());
             System.out.println(receiveSms());
         }
+    }
+
+    public void turnOff(){
+        setConnectionExists(false);
     }
 }
