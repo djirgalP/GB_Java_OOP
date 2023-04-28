@@ -1,6 +1,6 @@
 package Homework7;
 
-public class CellPhone extends Phone implements SMSImpl, GSMImpl{
+public class CellPhone extends LandlinePhone implements SMSImpl, GSMImpl{
 
     private String IMEI;
     private String phoneOperator;
@@ -61,7 +61,7 @@ public class CellPhone extends Phone implements SMSImpl, GSMImpl{
 
     @Override
     public void sendSms(String sms){
-        System.out.println("Cell phone sends sms");
+        System.out.println("Cell phone sends sms ... " + sms);
     }
 
     @Override
